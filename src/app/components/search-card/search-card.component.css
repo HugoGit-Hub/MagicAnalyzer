@@ -1,0 +1,7 @@
+.results {
+  width: 90%;
+  position: absolute;
+  overflow-y: auto;
+  z-index: 100;
+  border-radius: 6px;
+}

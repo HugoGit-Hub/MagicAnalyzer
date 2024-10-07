@@ -1,0 +1,23 @@
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.input {
+  border: unset;
+  box-shadow: unset;
+}
+
+.is-white {
+  border-color: hsl(222.9, 10.4%, 86.9%);
+  color: hsl(222.9, 9.5%, 71%);
+}
+
+.is-multicolor {
+  border-radius: 6px;
+}
