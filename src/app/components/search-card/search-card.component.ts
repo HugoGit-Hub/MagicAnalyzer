@@ -32,10 +32,6 @@ export class SearchCard {
         return this.searchCardExternal.autocomplete(query);
       })
     );
-
-    this.filteredResults.subscribe(results => {
-      console.log('Filtered Results:', results);
-    });
   }
 
   protected onSearch(event: Event): void {
@@ -43,4 +39,6 @@ export class SearchCard {
 
     this.searchQuery.next(query);
   }
+
+  protected readonly length = length;
 }

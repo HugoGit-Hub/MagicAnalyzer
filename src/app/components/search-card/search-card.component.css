@@ -7,3 +7,18 @@
   left: 2%;
   right: 2%;
 }
+
+.item:hover {
+  background-color: #14161a;
+}
+
+.item {
+  display: block;
+  padding: 8px 0;
+  text-decoration: unset !important;
+}
+
+.notification, .results {
+  display: block;
+  padding: unset;
+}

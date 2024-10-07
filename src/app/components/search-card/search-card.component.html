@@ -1,4 +1,4 @@
-<nav class="panel p-4 is-relative">
+<nav class="panel m-4 is-relative">
   <p class="panel-heading">Repositories</p>
   <div class="panel-block">
     <p class="control has-icons-left">
@@ -9,11 +9,7 @@
     </p>
   </div>
   <div class="notification panel-block results" *ngIf="(filteredResults | async) as results">
-    <ul class="list">
-      <li *ngFor="let result of results" class="list-item">
-        {{ result }}
-      </li>
-    </ul>
+    <a class="item p-2" *ngFor="let result of results" href="#">{{ result }}</a>
   </div>
   <p class="panel-tabs">
     <a class="is-active">All</a>
