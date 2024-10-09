@@ -1,7 +1,8 @@
 import {Component} from '@angular/core';
 import {AsyncPipe, NgForOf, NgIf} from '@angular/common';
 import {SearchCardExternal} from '../../externals/search-card.external';
-import {debounceTime, distinctUntilChanged, Observable, of, Subject, switchMap} from 'rxjs';
+import {debounceTime, distinctUntilChanged, map, Observable, of, Subject, switchMap} from 'rxjs';
+import {CardDto} from '../../dtos/card.dto';
 
 @Component({
   selector: 'search-cards',
@@ -19,6 +20,8 @@ export class SearchCard {
   private searchQuery: Subject<string> = new Subject<string>();
 
   protected filteredResults:Observable<string[]> = of([]);
+  protected cardName: string = "";
+  protected card: CardDto = {} as CardDto;
 
   constructor(private searchCardExternal: SearchCardExternal) {
     this.filteredResults = this.searchQuery.pipe(
@@ -40,5 +43,11 @@ export class SearchCard {
     this.searchQuery.next(query);
   }
 
-  protected readonly length = length;
+  protected selectCard(cardName: string): void {
+    this.cardName = cardName;
+
+    this.searchCardExternal.getCardByExactName(this.cardName)
+      .pipe(map(response => response))
+      .subscribe((card: CardDto) => this.card = card);
+  }
 }
