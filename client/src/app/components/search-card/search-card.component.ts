@@ -24,17 +24,7 @@ export class SearchCard {
   protected card: CardDto = {} as CardDto;
 
   constructor(private searchCardExternal: SearchCardExternal) {
-    this.filteredResults = this.searchQuery.pipe(
-      debounceTime(300),
-      distinctUntilChanged(),
-      switchMap(query => {
-        if (query.trim().length === 0) {
-          return of([]);
-        }
-
-        return this.searchCardExternal.autocomplete(query);
-      })
-    );
+    this.initializeSearch();
   }
 
   protected onSearch(event: Event): void {
@@ -44,10 +34,24 @@ export class SearchCard {
   }
 
   protected selectCard(cardName: string): void {
+    this.initializeSearch();
     this.cardName = cardName;
 
     this.searchCardExternal.getCardByExactName(this.cardName)
       .pipe(map(response => response))
       .subscribe((card: CardDto) => this.card = card);
+  }
+
+  private initializeSearch(): void {
+    this.filteredResults = this.searchQuery.pipe(
+      debounceTime(300),
+      distinctUntilChanged(),
+      switchMap(query => {
+        if (query.trim().length === 0) {
+          return of([]);
+        }
+        return this.searchCardExternal.autocomplete(query);
+      })
+    );
   }
 }

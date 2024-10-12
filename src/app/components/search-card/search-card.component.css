@@ -1,0 +1,28 @@
+.results {
+  width: 96%;
+  position: absolute;
+  overflow-y: auto;
+  z-index: 100;
+  border-radius: 0 0 6px 6px;
+  left: 2%;
+  right: 2%;
+}
+
+.item:hover {
+  background-color: #14161a;
+}
+
+.item {
+  display: block;
+  padding: 8px 0;
+  text-decoration: unset !important;
+}
+
+.notification, .results {
+  display: block;
+  padding: unset;
+}
+
+.card {
+  border-radius: 23px;
+}

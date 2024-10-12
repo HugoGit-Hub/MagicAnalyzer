@@ -22,3 +22,7 @@
   display: block;
   padding: unset;
 }
+
+.card {
+  border-radius: 23px;
+}
