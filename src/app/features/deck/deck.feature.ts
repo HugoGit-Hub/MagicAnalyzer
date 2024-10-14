@@ -1,11 +1,15 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {NgOptimizedImage} from '@angular/common';
+import {Chart, registerables} from 'chart.js';
 
 @Component({
   selector: 'deck',
   standalone: true,
-  templateUrl: './deck.feature.html'
+  imports: [
+    NgOptimizedImage
+  ],
+  templateUrl: './deck.feature.html',
+  styleUrl: 'deck.feature.css'
 })
 
-export class DeckFeature {
-
-}
+export class DeckFeature{ }
