@@ -1,0 +1,9 @@
+<div class="columns is-vcentered">
+  <div class="column is-11">
+    <progress class="progress is-small"
+              [ngStyle]="{'--bulma-progress-value-background-color': color}"
+              value="{{ progress }}"
+              max="100"></progress>
+  </div>
+  <p class="column is-1">{{ progress }}%</p>
+</div>
