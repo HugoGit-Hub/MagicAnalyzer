@@ -1,6 +1,7 @@
 <div class="columns is-vcentered">
   <div class="column is-11">
     <progress class="progress is-small"
+              [ngClass]="colorClass"
               [ngStyle]="{'--bulma-progress-value-background-color': color}"
               value="{{ progress }}"
               max="100"></progress>

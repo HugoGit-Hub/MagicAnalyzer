@@ -1,30 +1,43 @@
 <div>
   <div class="columns m-3">
-    <div class="column is-4">
-      <h1 class="title is-4">DECK ANALYSIS</h1>
-      <div class="columns">
-        <div class="column">
-          <progress class="progress is-small is-link" value="15" max="100"></progress>
+    <div class="column is-3">
+      <div class="is-flex is-align-items-center">
+        <h1 class="title is-4">DECK ANALYSIS</h1>
+        <div class="select ml-4 mb-5">
+          <select>
+            <option>Deck one</option>
+            <option>Deck two</option>
+          </select>
         </div>
-        <p class="column">15%</p>
       </div>
-      <progress class="progress is-small is-success" value="15" max="100"></progress>
-      <progress class="progress is-small is-danger" value="15" max="100"></progress>
-      <progress class="progress is-small" value="15" max="100"></progress>
-      <progress class="progress is-small is-warning" value="15" max="100"></progress>
+      <progress-bar [progress]="15" [color]="'#4258ff'" />
+      <progress-bar [progress]="25" [color]="'#48c78e'" />
+      <progress-bar [progress]="15" [color]="'#ff6685'" />
+      <progress-bar [progress]="30" [color]="'#4b4c50'" />
+      <progress-bar [progress]="10" [color]="'#e4b544'" />
+      <progress-bar [progress]="20" [color]="'#abb1bf'"/>
+      <progress-bar [progress]="20" [color]="'#abb1bf'"/>
+    </div>
+    <div class="column is-3 is-align-self-start">
+      <canvas baseChart
+              [type]="pieChartType"
+              [data]="pieChartData"
+              [options]="pieChartOptions"
+              style="width: 100%; height: 300px;">>
+      </canvas>
     </div>
     <div class="column is-4">
-
+      <canvas baseChart
+              [datasets]="mixedChartData.datasets"
+              [labels]="mixedChartData.labels"
+              [options]="mixedChartOptions"
+              [legend]="true"
+              [type]="mixedChartType">
+      </canvas>
     </div>
-
-    <div class="column is-4">
-
-    </div>
-
-    <div class="column is-4">
-
+    <div class="column is-2">
+      <search-cards />
     </div>
   </div>
-  <div class="columns m-3"></div>
+  <hr>
 </div>
-
